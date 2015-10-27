@@ -1,4 +1,4 @@
-#SwipeBackCoveredController
+SwipeBackCoveredController
 ==========================
 
 
