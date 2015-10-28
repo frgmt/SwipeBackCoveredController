@@ -26,6 +26,7 @@ class CustomNavigationAnimationController: NSObject, UIViewControllerAnimatedTra
             containerView?.addSubview(toView)
             
             UIView.animateWithDuration(duration, animations: {
+                fromView.frame = CGRectMake(-80.0, transitionContext.initialFrameForViewController(toViewController).origin.y, containerSize.width, containerSize.height)
                 toView.transform = CGAffineTransformIdentity
                 toView.frame = CGRectMake(0, transitionContext.finalFrameForViewController(toViewController).origin.y, containerSize.width, containerSize.height)
                 }, completion: {
@@ -33,7 +34,7 @@ class CustomNavigationAnimationController: NSObject, UIViewControllerAnimatedTra
                     transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
             })
         } else {
-            toView.frame = CGRectMake(0, transitionContext.finalFrameForViewController(toViewController).origin.y, containerSize.width, containerSize.height)
+            toView.frame = CGRectMake(-80.0, transitionContext.finalFrameForViewController(toViewController).origin.y, containerSize.width, containerSize.height)
             containerView?.insertSubview(toView, belowSubview: fromView)
             
             UIView.animateWithDuration(duration, animations: {
